@@ -75,7 +75,7 @@ theme: next-mist-gray
 deploy:
   type: git
   repo: https://github.com/decaylong/decaylong.github.io.git
-  branch: gh-pages
+  #branch: gh-pages
 
 # 社交链接，将在侧栏中显示
 social:
