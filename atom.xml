@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://decaylong.net/"/>
-  <updated>2015-06-04T05:29:26.679Z</updated>
+  <updated>2015-06-05T06:45:13.778Z</updated>
   <id>http://decaylong.net/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://decaylong.net/2015-01-26/Bukkit-plugin-%E6%B0%B4%E6%A1%B6%E6%9C%8D%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%80-%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E5%8F%8A%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%8F%92%E4%BB%B6%E4%B8%8E%E6%A8%A1%E6%9D%BF/"/>
     <id>http://decaylong.net/2015-01-26/Bukkit-plugin-水桶服插件开发学习笔记一-搭建环境及创建自己的第一个插件与模板/</id>
     <published>2015-01-26T14:42:32.000Z</published>
-    <updated>2015-06-04T05:29:26.679Z</updated>
+    <updated>2015-06-05T06:45:13.778Z</updated>
     <content type="html"><![CDATA[<h1 id="1-工具">1.工具</h1><p><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" title="Java SE - Downloads | Oracle Technology Network | Oracle" target="_blank" rel="external">JDK</a>：插件开发自然少不了Java语言，所以前提还是得懂得基础的Java开发才行</p>
 <p><a href="http://maven.apache.org/index.html" title="Maven - Welcome to Apache Maven" target="_blank" rel="external">Maven</a>：水桶服的插件项目是用Maven工具来进行管理的，所以少不了</p>
 <p><a href="http://eclipse.org/" title="Eclipse Luna" target="_blank" rel="external">Eclipse</a>、<a href="https://www.jetbrains.com/idea/" title="IntelliJ IDEA — The Most Intelligent Java IDE" target="_blank" rel="external">IntelliJ IDEA</a>、<a href="https://netbeans.org/" title="Welcome to NetBeans" target="_blank" rel="external">NetBeans</a>：开发工具IDE，三选一就行了，哪个顺手用哪个或想学哪个用哪个了，随意</p>
@@ -104,7 +104,7 @@
     <link href="http://decaylong.net/2014-11-07/%E5%85%B3%E4%BA%8Epip%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/"/>
     <id>http://decaylong.net/2014-11-07/关于pip的一些问题/</id>
     <published>2014-11-07T05:45:41.000Z</published>
-    <updated>2015-06-04T05:30:08.671Z</updated>
+    <updated>2015-06-05T06:45:13.778Z</updated>
     <content type="html"><![CDATA[<p>当在<a href="https://pypi.python.org/pypi" title="PyPI - the Python Package Index" target="_blank" rel="external"> pypi</a> 找包来安装的时候我们需要先为Python安装 <a href="https://pip.pypa.io/en/latest/installing.html" title="pip Installation" target="_blank" rel="external">pip</a> 才行,按照这个<a href="https://pip.pypa.io/en/latest/installing.html" title="pip Installation" target="_blank" rel="external">链接</a>的方法安装完后（记得在环境变量PATH加上python安装目录下的Scripts 文件夹如：D:\Program Files\Python2\Scripts\），运行时出现：<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Fatal <span class="keyword">error</span> <span class="keyword">in</span> launcher: Unable to create process using '<span class="string">""</span><span class="keyword">D</span>:\<span class="keyword">Program</span> Files\Python2\python.exe<span class="string">""</span> <span class="string">"D:\Program Files\Python2\Scripts\pip.exe"</span> '</span><br></pre></td></tr></table></figure></p>
 <p>关于这问题 <a href="http://stackoverflow.com/questions/24627525/fatal-error-in-launcher-unable-to-create-process-using-c-program-files-x86" target="_blank" rel="external">这里</a> 有一些讨论。</p>
 <p>在这些讨论里有人提到了 <a href="https://pip.pypa.io/en/latest/installing.html" title="pip Installation" target="_blank" rel="external">pip Installation</a> 教程里有提到：<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -<span class="keyword">m</span> pip install -<span class="keyword">U</span> pip</span><br></pre></td></tr></table></figure></p>
@@ -135,7 +135,7 @@
     <link href="http://decaylong.net/2014-09-03/Android-%E5%9C%A8launcher%E4%B8%8A%E6%B7%BB%E5%8A%A0%E5%8F%8A%E5%88%A0%E9%99%A4Shortcut%E6%96%B9%E6%B3%95/"/>
     <id>http://decaylong.net/2014-09-03/Android-在launcher上添加及删除Shortcut方法/</id>
     <published>2014-09-03T08:37:51.000Z</published>
-    <updated>2015-06-04T05:51:28.767Z</updated>
+    <updated>2015-06-05T06:45:13.777Z</updated>
     <content type="html"><![CDATA[<p>需要在Manifest里添加两个权限：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:<span class="property">name</span>=<span class="string">"com.android.launcher.permission.INSTALL_SHORTCUT"</span> /&gt;</span><br><span class="line">&lt;uses-permission android:<span class="property">name</span>=<span class="string">"com.android.launcher.permission.UNINSTALL_SHORTCUT"</span> /&gt;</span><br></pre></td></tr></table></figure></p>
 <p>添加完就可以照搬下面的代码来实现了</p>
 <p><strong>添加Shortcut：</strong><br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Intent intent1 = new Intent<span class="params">(<span class="string">"android.intent.action.MAIN"</span>)</span>;</span><br><span class="line"><span class="comment">//替换自己项目的</span></span><br><span class="line">intent1.setClass<span class="params">(MainActivity.this,MainActivity.class)</span>;</span><br><span class="line">intent1.addCategory<span class="params">(<span class="string">"android.intent.category.LAUNCHER"</span>)</span>;</span><br><span class="line"></span><br><span class="line">Intent intent2 = new Intent<span class="params">()</span>;</span><br><span class="line">intent2.putExtra<span class="params">(<span class="string">"android.intent.extra.shortcut.INTENT"</span>,intent1)</span>;</span><br><span class="line"><span class="comment">//把Shortcut的名字改为自己项目的</span></span><br><span class="line">intent2.putExtra<span class="params">(<span class="string">"android.intent.extra.shortcut.NAME"</span>,<span class="string">"MainActivity"</span>)</span>;</span><br><span class="line"><span class="comment">//把context改为自己项目的</span></span><br><span class="line">intent2.putExtra<span class="params">(<span class="string">"android.intent.extra.shortcut.ICON_RESOURCE"</span>,Intent.ShortcutIconResource.fromContext<span class="params">(MainActivity.this, R.drawable.icon)</span>)</span>;</span><br><span class="line"><span class="comment">//这里的覆盖参数不管设置为true还是false都没啥效果，不知是为何</span></span><br><span class="line">intent2.putExtra<span class="params">(<span class="string">"duplicate"</span>, <span class="literal">false</span>)</span>;</span><br><span class="line">intent2.setAction<span class="params">(<span class="string">"com.android.launcher.action.INSTALL_SHORTCUT"</span>)</span>;</span><br><span class="line">sendOrderedBroadcast<span class="params">(intent2, null)</span>;</span><br></pre></td></tr></table></figure></p>
@@ -158,7 +158,7 @@
     <link href="http://decaylong.net/2014-08-30/%E8%8E%B7%E5%8F%96-Android-%E8%87%AA%E5%AE%9A%E4%B9%89%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6%E8%B0%83%E7%94%A8URI/"/>
     <id>http://decaylong.net/2014-08-30/获取-Android-自定义资源文件调用URI/</id>
     <published>2014-08-30T08:26:52.000Z</published>
-    <updated>2015-06-04T05:51:09.459Z</updated>
+    <updated>2015-06-05T06:45:13.777Z</updated>
     <content type="html"><![CDATA[<p>在设置Notification的时候，有时会自己提供一个音乐文件，这是就需要在raw文件夹下存一个音乐文件，并在程序里面调用它，那么调用raw文件夹下的文件的方法就很重要了，做法很简单：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">Uri</span><span class="class">.parse</span>("<span class="rule"><span class="attribute">android.resource</span>:<span class="value">//包名/<span class="string">"+资源ID);</span></span></span></span><br></pre></td></tr></table></figure>
 <p>例如：</p>
