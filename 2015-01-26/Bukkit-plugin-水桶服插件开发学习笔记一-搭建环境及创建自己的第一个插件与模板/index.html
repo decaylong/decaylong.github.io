@@ -1,0 +1,644 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
+
+
+    <meta name="description" content="热爱生活，热爱编码，不插火把的死矿工一枚" />
+
+
+
+  <meta name="keywords" content="学习笔记," />
+
+
+
+  <link rel="alternate" href="/atom.xml" title="十诫空洞" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    analytics: {
+      baidu: '6e88b0ed513e6ab8418b3437ff96ab34',
+      google: ''
+    },
+    sidebar: 'post'
+  };
+</script>
+
+
+  <script type="text/javascript" src="/js/analytics_baidu-analytics.js"></script>
+
+
+
+  <title> [Bukkit plugin]水桶服插件开发学习笔记一:搭建环境及创建自己的第一个插件与模板 // 十诫空洞 </title>
+</head>
+
+<body>
+<!--[if lte IE 8]> <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'> <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari." style='margin-left:auto;margin-right:auto;display: block;'/></a></div> <![endif]-->
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">十诫空洞</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+
+  <ul id="menu" class="menu">
+     
+    
+      
+      <li class="menu-item menu-item-home">
+        <a href="/">
+          <i class="menu-item-icon icon-home"></i> <br />
+          首页
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-archives">
+        <a href="/archives">
+          <i class="menu-item-icon icon-archives"></i> <br />
+          归档
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-categories">
+        <a href="/categories">
+          <i class="menu-item-icon icon-categories"></i> <br />
+          分类
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-tags">
+        <a href="/tags">
+          <i class="menu-item-icon icon-tags"></i> <br />
+          标签
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-commonweal">
+        <a href="/404.html">
+          <i class="menu-item-icon icon-commonweal"></i> <br />
+          公益404
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-about">
+        <a href="/about">
+          <i class="menu-item-icon icon-about"></i> <br />
+          关于
+        </a>
+      </li>
+    
+  </ul>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              [Bukkit plugin]水桶服插件开发学习笔记一:搭建环境及创建自己的第一个插件与模板
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-01-26
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/Bukkit-Plugin/">Bukkit Plugin</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015-01-26/Bukkit-plugin-水桶服插件开发学习笔记一-搭建环境及创建自己的第一个插件与模板/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015-01-26/Bukkit-plugin-水桶服插件开发学习笔记一-搭建环境及创建自己的第一个插件与模板/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <h1 id="1-工具">1.工具</h1><p><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" title="Java SE - Downloads | Oracle Technology Network | Oracle" target="_blank" rel="external">JDK</a>：插件开发自然少不了Java语言，所以前提还是得懂得基础的Java开发才行</p>
+<p><a href="http://maven.apache.org/index.html" title="Maven - Welcome to Apache Maven" target="_blank" rel="external">Maven</a>：水桶服的插件项目是用Maven工具来进行管理的，所以少不了</p>
+<p><a href="http://eclipse.org/" title="Eclipse Luna" target="_blank" rel="external">Eclipse</a>、<a href="https://www.jetbrains.com/idea/" title="IntelliJ IDEA — The Most Intelligent Java IDE" target="_blank" rel="external">IntelliJ IDEA</a>、<a href="https://netbeans.org/" title="Welcome to NetBeans" target="_blank" rel="external">NetBeans</a>：开发工具IDE，三选一就行了，哪个顺手用哪个或想学哪个用哪个了，随意</p>
+<p><a href="https://github.com/" title="GitHub" target="_blank" rel="external">Git</a>：使用Git或者其他的版本管理工具来管理你的项目，可选</p>
+<p>工具的安装就不讲了，百度一下就有不少资料了。（旧版本的Eclipse可能没有集成M2Eclipse插件，所以需要自己弄一下，不过较新版本的Eclipse就没这烦恼）</p>
+<a id="more"></a>
+<h1 id="2-创建第一个Bukkit_Plugin项目">2.创建第一个Bukkit Plugin项目</h1><p>因为个人想学习IntelliJ IDEA的使用，故以下均是用此工具来讲解了。其他IDE平台其实也大同小异的。</p>
+<p>当前最新的IDEA是14.02</p>
+<p><a href="/images/2015/01/1.png"><img src="/images/2015/01/1.png" alt="版本14.02"></a></p>
+<h2 id="创建新工程">创建新工程</h2><p>点击创建一个新工程，选择Maven项目，下一步。</p>
+<p><a href="/images/2015/01/2.png"><img src="/images/2015/01/2.png" alt="创建一个Maven项目"></a></p>
+<p>GroupID是项目组织唯一的标识符，实际对应JAVA的包的结构，是main目录里java的目录结构。</p>
+<p>ArtifactID就是项目的唯一的标识符，实际对应项目的名称，就是项目根目录的名称。</p>
+<p>Version就是这个项目的版本号了。</p>
+<p>关于GroupID，假如你有一个域名 example.com 那么你可以填写成 com.example ，比如我的域名是decaylong.net，那么此处我写成 net.decaylong，然后在再加上你的项目的名字，比如我的项目名称是SamplePlugin，那么最后我的GroupID就是 net.decaylong.sampleplugin</p>
+<p>ArtifactID在这就是SamplePlugin</p>
+<p><a href="/images/2015/01/31.png"><img src="/images/2015/01/31.png" alt=""></a></p>
+<p>这里Project相对于Eclipse的WorkSpace的概念，Module相对于Eclipse的project概念，直接把Project name改为你的项目名称就行了</p>
+<p><a href="/images/2015/01/4.png"><img src="/images/2015/01/4.png" alt=""></a></p>
+<p>项目创建完是这个样子了</p>
+<p><a href="/images/2015/01/5.png"><img src="/images/2015/01/5.png" alt="项目创建完成"></a></p>
+<h2 id="配置项目以开发插件">配置项目以开发插件</h2><p>接下来引用Bukkit的API，打开你的pom.xml文件，加入以下内容到pom.xml文件里的标签前。</p>
+<p>build标签配置你的项目的编译版本，看一下<a href="http://mcstats.org/global/" title="MCstats" target="_blank" rel="external">MCstats</a>，普遍的服务器都是用的1.7版本java，只有少数1.6,而1.8只占1.7的四分之一而已，如果你的项目里会用到1.7及以上版本的特性的话，还是得用相应的版本，如果不用的话，其实1.6版也是无妨的，看需求了。</p>
+<p>repositories标签引用了bukkit的API仓库。</p>
+<p>dependencies标签指明我们的项目是依赖于bukkitAPI仓库里的哪个版本，关于版本，可以在version标签上注释的那个连接里，找到你想要开发的插件所对应的水桶服版本，替换即可。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">build</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">plugins</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">plugin</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">version</span>&gt;</span>2.3.2<span class="tag">&lt;/<span class="title">version</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">configuration</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">source</span>&gt;</span>1.6<span class="tag">&lt;/<span class="title">source</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">target</span>&gt;</span>1.6<span class="tag">&lt;/<span class="title">target</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="title">plugin</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">build</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">repositories</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">repository</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">id</span>&gt;</span>bukkit-repo<span class="tag">&lt;/<span class="title">id</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">url</span>&gt;</span>http://repo.bukkit.org/content/groups/public/<span class="tag">&lt;/<span class="title">url</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">repository</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">repositories</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">dependencies</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.bukkit<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>bukkit<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- Change "1.7.2-R0.2" to the version you wanna to develop,find the </span><br><span class="line">			versions from "http://repo.bukkit.org/content/groups/public/org/bukkit/bukkit/" --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">version</span>&gt;</span>1.7.2-R0.2<span class="tag">&lt;/<span class="title">version</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="title">scope</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>保存后需要更新一下项目的依赖包后方可继续后续的内容。只需在窗口右侧的“Maven Project”里点击“Generate Sources and Update Folders For All Projects”按键，如下图所示，也可以直接右击项目 -&gt; Maven -&gt;Generate Sources and Update Folders For All Projects.</p>
+<p><a href="/images/2015/01/update.png"><img src="/images/2015/01/update.png" alt="更新依赖包"></a></p>
+<p>这个过程会下载Bukkit的API包，如果下载出问题就开下VPN下载吧，直到运行完成就可以了。</p>
+<h2 id="插件主类">插件主类</h2><p>项目的依赖包初始化后就可以开始创建我们插件的主类，先在src -&gt; main -&gt; java下创建我们的包，名字同前面填写GroupID时一样，这里我创建的是”net.decaylong.sampleplugin”;</p>
+<p><a href="/images/2015/01/7.png"><img src="/images/2015/01/7.png" alt="创建包"></a></p>
+<p>然后在我们的包下新建我们的主类，在新建的包上右键 -&gt; New -&gt; Java Class，名字同ArtifactID的值，这里为SamplePlugin。</p>
+<p><a href="/images/2015/01/8.png"><img src="/images/2015/01/8.png" alt="新建主类"></a></p>
+<p>插件的主类需要继承BukkitAPI里的JavaPlugin类，所以需要修改下我们的代码，导入相应的包，让我们的类继承JavaPlugin，如下：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> net.decaylong.sampleplugin;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.bukkit.plugin.java.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Created by DecayLong on 2015/1/26.</span><br><span class="line"> */</span></span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">SamplePlugin</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">JavaPlugin</span>&#123;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="重要的plugin-yml文件">重要的plugin.yml文件</h2><p>为了让服务器能够加载我们的插件，就得建个plugin.yml文件，让服务器知道我们插件的一些信息，右键main下的resources文件夹 -&gt; New -&gt; File。</p>
+<p>name即插件的名称，main是插件的主类（包名.类名），version插件的版本<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">name</span>: <span class="string">SamplePlugin</span></span><br><span class="line"><span class="attribute">main</span>: <span class="string">net.decaylong.sampleplugin.SamplePlugin</span></span><br><span class="line"><span class="attribute">version</span>: <span class="string">1.0-SNAPSHOT</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="插件的启用与禁用回调函数">插件的启用与禁用回调函数</h2><p>现在既然服务器能够加载我们的插件了，那么我们就得对服务器的加载动作做出反应了，在主类的编辑窗口里按ctrl+O 或者 菜单Code -&gt; Override Methods…; 打开复写函数窗口，按住ctrl键，选择onDisable()及onEnable()这两函数，确定。</p>
+<p><a href="/images/2015/01/9.png"><img src="/images/2015/01/9.png" alt="选择复写函数"></a></p>
+<p><a href="/images/2015/01/10.png"><img src="/images/2015/01/10.png" alt="复写函数"></a></p>
+<p>为了直观的让我们知道我们的插件被服务器加载了，并且我们能对其进行操作，我们在这复写的两个函数里各打印一句话，修改后代码如下：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> net.decaylong.sampleplugin;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.bukkit.plugin.java.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Created by DecayLong on 2015/1/26.</span><br><span class="line"> */</span></span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">SamplePlugin</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">JavaPlugin</span> &#123;</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    public void onDisable() &#123;</span><br><span class="line">        getLogger().info(<span class="string">"Plugin: SamplePlugin is now off!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    public void onEnable() &#123;</span><br><span class="line">        getLogger().info(<span class="string">"Plugin: SamplePlugin is now on!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="第一个插件的诞生">第一个插件的诞生</h2><p>到这里我们的第一个水桶服插件就开发完成了，接下来就是编译打包然后放服务器里运行一下看看了。点开IDEA窗口右边的“Maven Projects”，展开“Lifecycle”，右击“package”，运行“Run ‘SamplePlugin [package]’”。第一次编译需要下载Maven的一些包，所以需要点时间，如果没法下载或者下完后编译有问题，可以考虑开VPN再重新下一遍，毕竟国外的东西，国内想用还是多多少少有些许问题。</p>
+<p><a href="/images/2015/01/19.png"><img src="/images/2015/01/19.png" alt=""></a></p>
+<p><a href="/images/2015/01/20.png"><img src="/images/2015/01/20.png" alt=""></a></p>
+<p>编译完后在项目的根目录下有个target文件夹，编译后的jar包就在这了，复制到服务器的plugins文件夹里，运行服务器就可以看到我们的插件已经加载进服务器了，键入reload命令，插件也会如愿的被停止后再启用</p>
+<p><a href="/images/2015/01/11.png"><img src="/images/2015/01/11.png" alt="服务器加载插件"></a></p>
+<p><a href="/images/2015/01/12.png"><img src="/images/2015/01/12.png" alt="被停用"></a></p>
+<h1 id="3-创建插件开发模板">3.创建插件开发模板</h1><h2 id="创建模板">创建模板</h2><p>Maven有个命令可直接依靠当前项目来创建模板<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn archetype:create-<span class="keyword">from</span>-<span class="keyword">project</span></span><br></pre></td></tr></table></figure></p>
+<p>IDEA的Maven Projects窗口内的工具栏有个“Execute Maven Goal”按键，点击，输入 “clean archetype:create-from-project”，运行。</p>
+<p><a href="/images/2015/01/13.png"><img src="/images/2015/01/13.png" alt="创建模板"></a></p>
+<h2 id="修改模板">修改模板</h2><p>整个模板都在target/generated-sources/archetype目录下，那么接下来以在这个文件夹为根目录，需要改的文件如图所示</p>
+<p><a href="/images/2015/01/15.png"><img src="/images/2015/01/15.png" alt="修改文件"></a></p>
+<p>SamplePlugin.java：右键 -&gt; Refactor -&gt; Rename File…;  修改文件名为“<strong>artifactId</strong>.java”，注意前后各两个下划线，共四个下划线</p>
+<p>plugin.yml：打开此文件，内存替换成：<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">name</span>: <span class="string">$&#123;artifactId&#125;</span></span><br><span class="line"><span class="attribute">main</span>: <span class="string">$&#123;package&#125;.$&#123;artifactId&#125;</span></span><br><span class="line"><span class="attribute">version</span>: <span class="string">$&#123;version&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>archetype-metadata.xml：因为创建模板的时候，Maven把工程目录下的一些无关紧要的文件也列入模板列表里了，这些文件我们并不需要，所以删除它们的记录以及文件。在archetype-descriptor标签里，只留下directory标签内容为：“src/main/java” 以及 “src/main/resources”的fileSet标签，其他的fileSet标签都删除，然后在directory标签内容为：“src/main/resources”对应的fileSet标签里添加属性“filtered=”true””，修改后内容如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">archetype-descriptor</span> <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"</span> <span class="attribute">name</span>=<span class="value">"SamplePlugin"</span></span><br><span class="line">    <span class="attribute">xmlns</span>=<span class="value">"http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"</span></span><br><span class="line">    <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">fileSets</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">fileSet</span> <span class="attribute">filtered</span>=<span class="value">"true"</span> <span class="attribute">packaged</span>=<span class="value">"true"</span> <span class="attribute">encoding</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="title">directory</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">includes</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">include</span>&gt;</span>**/*.java<span class="tag">&lt;/<span class="title">include</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">includes</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">fileSet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">fileSet</span> <span class="attribute">filtered</span>=<span class="value">"true"</span> <span class="attribute">encoding</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="title">directory</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">includes</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">include</span>&gt;</span>**/*.yml<span class="tag">&lt;/<span class="title">include</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">includes</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">fileSet</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">fileSets</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">archetype-descriptor</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>改完后把src/main/resources/archetype-resources下的“.idea”文件夹以及“.iml”文件删除</p>
+<p>pom.xml：注意是target/generated-sources/archetype文件夹下的pom.xml。把groupId改下，后面加上”_archetype”，便于我们辨认，再把version改为1.0，这是我们的1.0正式版模板，当然这一步看个人爱好了，不想改就不改了，只是为了好看点。</p>
+<h2 id="安装模板到本地仓库">安装模板到本地仓库</h2><p>运行cmd，切换目录到项目的target/generated-sources/archetype文件夹下，即archetype项目的根目录，运行<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">mvn </span>clean install</span><br></pre></td></tr></table></figure></p>
+<p><a href="/images/2015/01/16.png"><img src="/images/2015/01/16.png" alt="安装模板到本地仓库"></a></p>
+<p>到这我们的模板就创建完成了</p>
+<h1 id="4-使用模板">4.使用模板</h1><p>新建一个Maven项目，勾选“Create from archetype”，因为IDEA的Maven插件没法自己加载本地的archetype，所以得自己手动添加了（Eclipse就没这问题），点击“Add Archetype..”，填写我们的模板的GroupId、ArtifactId、Version（<strong>ps：这三个值是以“target\generated-sources\archetype”这目录下的“pom.xml”文件里的值为准</strong>），然后确认。</p>
+<p><a href="/images/2015/01/17.png"><img src="/images/2015/01/17.png" alt="添加archetype"></a></p>
+<p><a href="/images/2015/01/18.png"><img src="/images/2015/01/18.png" alt="18"></a></p>
+<p>接下来就跟创建第一个项目是一样的操作了。</p>
+<p>填写了那三个值后下一步时Maven的一些配置信息，让他默认就行了，项目创建完成后可能Maven处理的速度会比较慢，耐心等待它跑完。如果右上角有提示你导入Maven Projects，请点击 Enable Auto-Import 就行了</p>
+
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/学习笔记/"> #学习笔记 </a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014-11-07/关于pip的一些问题/">关于pip的一些问题</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </div>
+  </div>
+
+
+
+    
+      <div class="comments" id="comments">
+        
+          <div class="ds-thread" data-thread-key="2015-01-26/Bukkit-plugin-水桶服插件开发学习笔记一-搭建环境及创建自己的第一个插件与模板/"
+               data-title="[Bukkit plugin]水桶服插件开发学习笔记一:搭建环境及创建自己的第一个插件与模板" data-url="http://decaylong.net/2015-01-26/Bukkit-plugin-水桶服插件开发学习笔记一-搭建环境及创建自己的第一个插件与模板/">
+          </div>
+        
+      </div>
+    
+  </div>
+
+
+        </div>
+
+        
+      </div>
+
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview">
+        <div class="site-author motion-element">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="DecayLong" />
+          <p class="site-author-name">DecayLong</p>
+        </div>
+        <p class="site-description motion-element">热爱生活，热爱编码，不插火把的死矿工一枚</p>
+        <div class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </div>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml">
+              <i class="menu-item-icon icon-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+              <a href="https://github.com/decaylong" target="_blank">GitHub</a>
+            </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://weibo.com/DecayLong" target="_blank">Weibo</a>
+            </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+      </div>
+
+      
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-工具"><span class="nav-number">1.</span> <span class="nav-text">1.工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-创建第一个Bukkit_Plugin项目"><span class="nav-number">2.</span> <span class="nav-text">2.创建第一个Bukkit Plugin项目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建新工程"><span class="nav-number">2.1.</span> <span class="nav-text">创建新工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置项目以开发插件"><span class="nav-number">2.2.</span> <span class="nav-text">配置项目以开发插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件主类"><span class="nav-number">2.3.</span> <span class="nav-text">插件主类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重要的plugin-yml文件"><span class="nav-number">2.4.</span> <span class="nav-text">重要的plugin.yml文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件的启用与禁用回调函数"><span class="nav-number">2.5.</span> <span class="nav-text">插件的启用与禁用回调函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一个插件的诞生"><span class="nav-number">2.6.</span> <span class="nav-text">第一个插件的诞生</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-创建插件开发模板"><span class="nav-number">3.</span> <span class="nav-text">3.创建插件开发模板</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建模板"><span class="nav-number">3.1.</span> <span class="nav-text">创建模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改模板"><span class="nav-number">3.2.</span> <span class="nav-text">修改模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装模板到本地仓库"><span class="nav-number">3.3.</span> <span class="nav-text">安装模板到本地仓库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-使用模板"><span class="nav-number">4.</span> <span class="nav-text">4.使用模板</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2015
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">DecayLong</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist - v0.4.3
+  </a>
+   - Modified by DecayLong
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js" id="motion.global"></script>
+
+
+
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"decaylong"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+  
+  
+
+</body>
+</html>
