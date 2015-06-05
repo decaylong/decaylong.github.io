@@ -96,6 +96,12 @@ feed:
   path: atom.xml
   limit: 20
 
+# 多说帐号
+duoshuo_shortname: decaylong
+
+# DISQUS 帐号 （如果已经设置 多说 帐号，此选项将被跳过）
+#disqus_shortname: DecayLong
+
 # 站点起始时间
 since: 2015
 
