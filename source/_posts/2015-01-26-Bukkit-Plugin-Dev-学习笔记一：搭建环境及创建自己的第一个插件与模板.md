@@ -1,4 +1,4 @@
-title: '[Bukkit plugin]水桶服插件开发学习笔记一:搭建环境及创建自己的第一个插件与模板'
+title: '[Bukkit Plugin Dev]学习笔记一:搭建环境及创建自己的第一个插件与模板'
 categories:
   - Bukkit Plugin
 tags:
@@ -87,7 +87,7 @@ dependencies标签指明我们的项目是依赖于bukkitAPI仓库里的哪个�
 		<dependency>
 			<groupId>org.bukkit</groupId>
 			<artifactId>bukkit</artifactId>
-			<!-- Change "1.7.2-R0.2" to the version you wanna to develop,find the 
+			<!-- Change "1.7.2-R0.2" to the version you wanna to develop,find the
 				versions from "http://repo.bukkit.org/content/groups/public/org/bukkit/bukkit/" -->
 			<version>1.7.2-R0.2</version>
 			<scope>provided</scope>
@@ -254,4 +254,3 @@ pom.xml：注意是target/generated-sources/archetype文件夹下的pom.xml。�
 接下来就跟创建第一个项目是一样的操作了。
 
 填写了那三个值后下一步时Maven的一些配置信息，让他默认就行了，项目创建完成后可能Maven处理的速度会比较慢，耐心等待它跑完。如果右上角有提示你导入Maven Projects，请点击 Enable Auto-Import 就行了
-
