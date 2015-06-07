@@ -64,7 +64,7 @@ toc_list_number: true
 use_motion: true
 
 # Fancybox
-fancybox: true
+fancybox: false
 
 # Static files
 vendors: vendors
