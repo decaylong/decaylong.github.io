@@ -12,8 +12,6 @@
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
-
 
 <link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
 
@@ -50,7 +48,7 @@
 
 
 
-  <title> [Bukkit plugin]水桶服插件开发学习笔记一:搭建环境及创建自己的第一个插件与模板 // 十诫空洞 </title>
+  <title> [Bukkit Plugin Dev]学习笔记一:搭建环境及创建自己的第一个插件与模板 // 十诫空洞 </title>
 </head>
 
 <body>
@@ -146,7 +144,7 @@
           
           
             
-              [Bukkit plugin]水桶服插件开发学习笔记一:搭建环境及创建自己的第一个插件与模板
+              [Bukkit Plugin Dev]学习笔记一:搭建环境及创建自己的第一个插件与模板
             
           
         </h1>
@@ -174,8 +172,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015-01-26/Bukkit-plugin-水桶服插件开发学习笔记一-搭建环境及创建自己的第一个插件与模板/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015-01-26/Bukkit-plugin-水桶服插件开发学习笔记一-搭建环境及创建自己的第一个插件与模板/"></span>
+            <a href="/2015-01-26/Bukkit-Plugin-Dev-学习笔记一：搭建环境及创建自己的第一个插件与模板/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015-01-26/Bukkit-Plugin-Dev-学习笔记一：搭建环境及创建自己的第一个插件与模板/"></span>
             </a>
           </span>
           
@@ -213,7 +211,7 @@
 <h2 id="配置项目以开发插件">配置项目以开发插件</h2><p>接下来引用Bukkit的API，打开你的pom.xml文件，加入以下内容到pom.xml文件里的标签前。</p>
 <p>build标签配置你的项目的编译版本，看一下<a href="http://mcstats.org/global/" title="MCstats" target="_blank" rel="external">MCstats</a>，普遍的服务器都是用的1.7版本java，只有少数1.6,而1.8只占1.7的四分之一而已，如果你的项目里会用到1.7及以上版本的特性的话，还是得用相应的版本，如果不用的话，其实1.6版也是无妨的，看需求了。</p>
 <p>repositories标签引用了bukkit的API仓库。</p>
-<p>dependencies标签指明我们的项目是依赖于bukkitAPI仓库里的哪个版本，关于版本，可以在version标签上注释的那个连接里，找到你想要开发的插件所对应的水桶服版本，替换即可。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">build</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">plugins</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">plugin</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">version</span>&gt;</span>2.3.2<span class="tag">&lt;/<span class="title">version</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">configuration</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">source</span>&gt;</span>1.6<span class="tag">&lt;/<span class="title">source</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">target</span>&gt;</span>1.6<span class="tag">&lt;/<span class="title">target</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="title">plugin</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">build</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">repositories</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">repository</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">id</span>&gt;</span>bukkit-repo<span class="tag">&lt;/<span class="title">id</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">url</span>&gt;</span>http://repo.bukkit.org/content/groups/public/<span class="tag">&lt;/<span class="title">url</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">repository</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">repositories</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">dependencies</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.bukkit<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>bukkit<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- Change "1.7.2-R0.2" to the version you wanna to develop,find the </span><br><span class="line">			versions from "http://repo.bukkit.org/content/groups/public/org/bukkit/bukkit/" --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">version</span>&gt;</span>1.7.2-R0.2<span class="tag">&lt;/<span class="title">version</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="title">scope</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>dependencies标签指明我们的项目是依赖于bukkitAPI仓库里的哪个版本，关于版本，可以在version标签上注释的那个连接里，找到你想要开发的插件所对应的水桶服版本，替换即可。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">build</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">plugins</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">plugin</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">version</span>&gt;</span>2.3.2<span class="tag">&lt;/<span class="title">version</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">configuration</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">source</span>&gt;</span>1.6<span class="tag">&lt;/<span class="title">source</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">target</span>&gt;</span>1.6<span class="tag">&lt;/<span class="title">target</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="title">plugin</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">build</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">repositories</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">repository</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">id</span>&gt;</span>bukkit-repo<span class="tag">&lt;/<span class="title">id</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">url</span>&gt;</span>http://repo.bukkit.org/content/groups/public/<span class="tag">&lt;/<span class="title">url</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">repository</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">repositories</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">dependencies</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.bukkit<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>bukkit<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- Change "1.7.2-R0.2" to the version you wanna to develop,find the</span><br><span class="line">			versions from "http://repo.bukkit.org/content/groups/public/org/bukkit/bukkit/" --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">version</span>&gt;</span>1.7.2-R0.2<span class="tag">&lt;/<span class="title">version</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="title">scope</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>保存后需要更新一下项目的依赖包后方可继续后续的内容。只需在窗口右侧的“Maven Project”里点击“Generate Sources and Update Folders For All Projects”按键，如下图所示，也可以直接右击项目 -&gt; Maven -&gt;Generate Sources and Update Folders For All Projects.</p>
 <p><a href="/images/2015/01/update.png"><img src="/images/2015/01/update.png" alt="更新依赖包"></a></p>
 <p>这个过程会下载Bukkit的API包，如果下载出问题就开下VPN下载吧，直到运行完成就可以了。</p>
@@ -289,8 +287,8 @@
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="2015-01-26/Bukkit-plugin-水桶服插件开发学习笔记一-搭建环境及创建自己的第一个插件与模板/"
-               data-title="[Bukkit plugin]水桶服插件开发学习笔记一:搭建环境及创建自己的第一个插件与模板" data-url="http://decaylong.net/2015-01-26/Bukkit-plugin-水桶服插件开发学习笔记一-搭建环境及创建自己的第一个插件与模板/">
+          <div class="ds-thread" data-thread-key="2015-01-26/Bukkit-Plugin-Dev-学习笔记一：搭建环境及创建自己的第一个插件与模板/"
+               data-title="[Bukkit Plugin Dev]学习笔记一:搭建环境及创建自己的第一个插件与模板" data-url="http://decaylong.net/2015-01-26/Bukkit-Plugin-Dev-学习笔记一：搭建环境及创建自己的第一个插件与模板/">
           </div>
         
       </div>
@@ -449,9 +447,6 @@
   
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js"></script>
-
 
   <script type="text/javascript" src="/js/helpers.js"></script>
   
