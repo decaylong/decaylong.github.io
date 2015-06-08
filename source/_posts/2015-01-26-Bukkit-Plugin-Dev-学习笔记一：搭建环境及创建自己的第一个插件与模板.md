@@ -196,7 +196,7 @@ IDEA的Maven Projects窗口内的工具栏有个“Execute Maven Goal”按键�
 
 [![修改文件](/images/2015/01/15.png)](/images/2015/01/15.png)
 
-SamplePlugin.java：右键 -> Refactor -> Rename File...;  修改文件名为“__artifactId__.java”，注意前后各两个下划线，共四个下划线
+SamplePlugin.java：右键 -> Refactor -> Rename File... 修改文件名为“\_\_artifactId\_\_.java”，注意前后各两个下划线，共四个下划线
 
 plugin.yml：打开此文件，内存替换成：
 {% codeblock %}
