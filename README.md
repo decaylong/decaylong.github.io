@@ -1,1 +1,1 @@
-[DecayLong's Blog](http://decaylong.net)
+[DecayLong's Blog](http://decaylong.github.io)
