@@ -103,8 +103,4 @@ duoshuo_shortname: decaylong
 since: 2015
 
 # 百度统计 ID，此 ID 是百度统计提供脚本中 hm.js? 后面那串字符，非百度统计帐号
-<<<<<<< HEAD
 baidu_analytics: 2279a3f358fafaf20e1ad75194fddeed
-=======
-baidu_analytics: 2279a3f358fafaf20e1ad75194fddeed
->>>>>>> 3c618b56df1010a6264eef296ebe2cdede11d429
