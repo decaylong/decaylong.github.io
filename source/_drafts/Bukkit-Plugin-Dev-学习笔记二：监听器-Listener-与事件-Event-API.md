@@ -12,6 +12,8 @@ tags:
 
 监听器和事件是相辅相成的，事件告诉监听器某件事发生了，而监听器则决定要对哪些发生的事件作出反应。
 
+<!-- more -->
+
 #二：基础
 
 ##一个简单的监听器
@@ -29,8 +31,8 @@ import org.bukkit.event.player.PlayerLoginEvent;
 
 //实现了Listener接口，所以是个监听器
 public class EventsTestListener implements Listener {
-	
-	//捕获某个事件
+
+	  //捕获某个事件
     @EventHandler
     public void onLogin(PlayerLoginEvent event) {
         //EventsPlugin.logInfo();这个静态方法(Method)是调用自我的插件主类EventsPlugin的
@@ -54,8 +56,14 @@ onLogin 方法(Method)就是一个处理事件的方法(Method)。方法(Method)
 
 ##注册事件
 
+注册事件需要调用 PluginManager 类的 registerEvents(Listener listener, Plugin plugin) 方法来进行注册。
+
+registerEvents 方法需要两个参数，一个是监听器实例，一个是想要注册这监听器的插件实例。
+
+
+
 ##注销事件
 
-#提高
+注销事件而已使用
 
-
+#三：提高
